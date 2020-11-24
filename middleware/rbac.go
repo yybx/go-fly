@@ -16,6 +16,8 @@ func RbacAuth(c *gin.Context) {
 	if role.Method != "*" || role.Path != "*" {
 		paths := strings.Split(role.Path, ",")
 		for _, p := range paths {
+			fmt.Println(p)
+			fmt.Println(uriParam)
 			if uriParam == p {
 				flag = true
 				break

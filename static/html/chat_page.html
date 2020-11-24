@@ -22,11 +22,6 @@
         <div class="chatContext chatVisitorPage">
             <div class="chatBox">
                 <el-alert
-                        style="margin-bottom: 10px;font-size: 12px;"
-                        title="公告 : 访客您好，欢迎star fork github https://github.com/taoshihan1991/go-fly ，感谢您的支持。"
-                        type="success">
-                </el-alert>
-                <el-alert
                         style="margin-bottom: 10px;"
                         :title="chatTitle"
                         :closable="false"
@@ -58,9 +53,6 @@
             </div>
             <div class="btnArea">
                 <el-button type="primary" class="chatBoxSendBtn" size="small" v-on:click="chatToUser">{{.SendBtn}}</el-button>
-            </div>
-            <div class="footContact clear">
-                <a href="https://github.com/taoshihan1991/go-fly" target="_blank">GO-FLY0.2.2客服陶士涵提供技术支持</a>
             </div>
         </div>
         <!--//客服代码-->
