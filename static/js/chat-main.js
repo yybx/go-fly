@@ -35,6 +35,8 @@ var app=new Vue({
         visitorCurrentPage:1,
         visitorPageSize:10,
         face:[],
+        transKefuDialog:false,
+        otherKefus:[],
     },
     methods: {
         //跳转
@@ -592,7 +594,46 @@ var app=new Vue({
             var b = document.getElementById("chatMessageSendAudio");
             var p = b.play();
             p && p.then(function(){}).catch(function(e){});
-        }
+        },
+        //转移客服
+        transKefu(){
+            this.transKefuDialog=true;
+            var _this=this;
+            this.sendAjax("/other_kefulist","get",{},function(result){
+                _this.otherKefus=result;
+            });
+        },
+        //转移访客客服
+        transKefuVisitor(kefu,visitorId){
+            var _this=this;
+            this.sendAjax("/trans_kefu","get",{kefu_id:kefu,visitor_id:visitorId},function(result){
+                //_this.otherKefus=result;
+                _this.transKefuDialog = false
+            });
+        },
+        sendAjax(url,method,params,callback){
+            let _this=this;
+            $.ajax({
+                type: method,
+                url: url,
+                data:params,
+                headers: {
+                    "token": localStorage.getItem("token")
+                },
+                success: function(data) {
+                    if(data.code!=200){
+                        _this.$message({
+                            message: data.msg,
+                            type: 'error'
+                        });
+                    }else if(data.result!=null){
+                        callback(data.result);
+                    }else{
+                        callback(data);
+                    }
+                }
+            });
+        },
     },
     mounted() {
         document.addEventListener('paste', this.onPasteUpload)
