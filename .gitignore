@@ -2,3 +2,4 @@
 imaptool.exe
 .logs
 *.log
+*.json
