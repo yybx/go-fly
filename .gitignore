@@ -1,3 +1,4 @@
 .idea
 imaptool.exe
 .logs
+*.log
