@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/taoshihan1991/imaptool/config"
 	"github.com/taoshihan1991/imaptool/models"
 	"github.com/taoshihan1991/imaptool/tmpl"
 	"github.com/taoshihan1991/imaptool/tools"
@@ -26,7 +27,7 @@ func MainCheckAuth(c *gin.Context) {
 		"code": 200,
 		"msg":  "验证成功",
 		"result": gin.H{
-			"avator":    userinfo.Avator,
+			"avator":    config.COSHOST + userinfo.Avator,
 			"name":      userinfo.Name,
 			"role_name": userinfo.RoleName,
 		},

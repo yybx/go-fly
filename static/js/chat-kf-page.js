@@ -182,7 +182,7 @@ var chatKfBox = {
                                 type: 'error'
                             });
                         }else{
-                            _this.messageContent+='img[/' + res.result.path + ']';
+                            _this.messageContent+='img[' + res.result.path + ']';
                             _this.chatToUser();
                         }
                     },

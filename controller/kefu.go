@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/taoshihan1991/imaptool/config"
 	"github.com/taoshihan1991/imaptool/models"
 	"github.com/taoshihan1991/imaptool/tools"
 	"github.com/taoshihan1991/imaptool/ws"
@@ -14,7 +15,7 @@ func GetKefuInfo(c *gin.Context) {
 	info := make(map[string]interface{})
 	info["name"] = user.Nickname
 	info["id"] = user.Name
-	info["avator"] = user.Avator
+	info["avator"] = config.COSHOST + user.Avator
 	c.JSON(200, gin.H{
 		"code":   200,
 		"msg":    "ok",
@@ -44,7 +45,7 @@ func GetOtherKefuList(c *gin.Context) {
 		item := make(map[string]interface{})
 		item["name"] = kefu.Name
 		item["nickname"] = kefu.Nickname
-		item["avator"] = kefu.Avator
+		item["avator"] = config.COSHOST + kefu.Avator
 		item["status"] = "offline"
 		kefus, ok := ws.KefuList[kefu.Name]
 		if ok && len(kefus) != 0 {

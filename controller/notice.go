@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	"github.com/taoshihan1991/imaptool/config"
 	"github.com/taoshihan1991/imaptool/models"
 	"github.com/taoshihan1991/imaptool/tools"
 	"log"
@@ -20,7 +21,7 @@ func GetNotice(c *gin.Context) {
 	for _, welcome := range welcomes {
 		h := gin.H{
 			"name":    user.Nickname,
-			"avator":  user.Avator,
+			"avator":  config.COSHOST + user.Avator,
 			"is_kefu": false,
 			"content": welcome.Content,
 			"time":    time.Now().Format("2006-01-02 15:04:05"),

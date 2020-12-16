@@ -72,7 +72,7 @@ func SendMessage(c *gin.Context) {
 			Type: "message",
 			Data: ClientMessage{
 				Name:    kefuInfo.Nickname,
-				Avator:  kefuInfo.Avator,
+				Avator:  config.COSHOST + kefuInfo.Avator,
 				Id:      kefuInfo.Name,
 				Time:    time.Now().Format("2006-01-02 15:04:05"),
 				ToId:    vistorInfo.VisitorId,
@@ -156,7 +156,7 @@ func SendMessageV2(c *gin.Context) {
 				Type: "message",
 				Data: ws.ClientMessage{
 					Name:    kefuInfo.Nickname,
-					Avator:  kefuInfo.Avator,
+					Avator:  config.COSHOST + kefuInfo.Avator,
 					Id:      kefuInfo.Name,
 					Time:    time.Now().Format("2006-01-02 15:04:05"),
 					ToId:    vistorInfo.VisitorId,
@@ -172,7 +172,7 @@ func SendMessageV2(c *gin.Context) {
 			Type: "message",
 			Data: ws.ClientMessage{
 				Name:    kefuInfo.Nickname,
-				Avator:  kefuInfo.Avator,
+				Avator:  config.COSHOST + kefuInfo.Avator,
 				Id:      vistorInfo.VisitorId,
 				Time:    time.Now().Format("2006-01-02 15:04:05"),
 				ToId:    vistorInfo.VisitorId,
@@ -323,6 +323,10 @@ func UploadImg(c *gin.Context) {
 	}
 }
 
+func UploadImgCos(c *gin.Context) {
+	NewCosClient(c).Upload()
+}
+
 func GetMessagesV2(c *gin.Context) {
 	visitorId := c.Query("visitor_id")
 	messages := models.FindMessageByVisitorId(visitorId)
@@ -342,7 +346,7 @@ func GetMessagesV2(c *gin.Context) {
 		chatMessage.MesType = message.MesType
 		if message.MesType == "kefu" {
 			chatMessage.Name = kefu.Nickname
-			chatMessage.Avator = kefu.Avator
+			chatMessage.Avator = config.COSHOST + kefu.Avator
 		} else {
 			chatMessage.Name = visitor.Name
 			chatMessage.Avator = visitor.Avator

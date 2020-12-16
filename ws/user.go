@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	"github.com/taoshihan1991/imaptool/config"
 	"github.com/taoshihan1991/imaptool/models"
 	"log"
 )
@@ -29,7 +30,7 @@ func NewKefuServer(c *gin.Context) {
 	var kefu User
 	kefu.Id = kefuInfo.Name
 	kefu.Name = kefuInfo.Nickname
-	kefu.Avator = kefuInfo.Avator
+	kefu.Avator = config.COSHOST + kefuInfo.Avator
 	kefu.Role_id = kefuInfo.RoleId
 	kefu.Conn = conn
 	AddKefuToList(&kefu)

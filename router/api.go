@@ -37,7 +37,7 @@ func InitApiRouter(engine *gin.Engine) {
 	//发送关闭消息
 	engine.GET("/message_close", controller.SendCloseMessage)
 	//上传文件
-	engine.POST("/uploadimg", middleware.Ipblack, controller.UploadImg)
+	engine.POST("/uploadimg", middleware.Ipblack, controller.UploadImgCos)
 	//获取未读消息数
 	engine.GET("/message_status", controller.GetVisitorMessage)
 	//设置消息已读

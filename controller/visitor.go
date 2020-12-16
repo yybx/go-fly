@@ -165,7 +165,7 @@ func GetVisitorMessage(c *gin.Context) {
 		item["visitor_name"] = visitor.Name
 		item["visitor_avator"] = visitor.Avator
 		item["kefu_name"] = kefu.Nickname
-		item["kefu_avator"] = kefu.Avator
+		item["kefu_avator"] = config.COSHOST + kefu.Avator
 		result = append(result, item)
 
 	}

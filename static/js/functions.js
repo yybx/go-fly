@@ -74,7 +74,7 @@ function replaceContent (content) {// 转义聊天内容中的特殊字符
             return '<img alt="' + alt + '" title="' + alt + '" src="' + faces[alt] + '">';
         })
         .replace(/img\[([^\s\[\]]+?)\]/g, function (face) {  // 转义图片
-            var src = face.replace(/^img\[/g, '').replace(/\]/g, '');;
+            var src = face.replace(/^img\[/g, 'https://yybx-1304334685.cos.ap-beijing.myqcloud.com').replace(/\]/g, '');;
             return '<img onclick="bigPic(src,true)" src="' + src + '" style="max-width: 100%"/></div>';
         })
         .replace(/\[([^\s\[\]]+?)\]+link\[([^\s\[\]]+?)\]/g, function (face) {  // 转义超链接

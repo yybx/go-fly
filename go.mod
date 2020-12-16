@@ -26,4 +26,5 @@ require (
 	github.com/swaggo/swag v1.5.1
 	golang.org/x/net v0.0.0-20200513185701-a91f0712d120
 	golang.org/x/text v0.3.2
+	github.com/tencentyun/cos-go-sdk-v5 v0.7.12
 )

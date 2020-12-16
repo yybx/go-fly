@@ -14,7 +14,7 @@ var (
 	Version              = "0.1.2"
 	GoflyConfig     *Config
 )
-
+const COSHOST = "https://yybx-1304334685.cos.ap-beijing.myqcloud.com"
 const Dir = "config/"
 const AccountConf = Dir + "account.json"
 const MysqlConf = Dir + "mysql.json"
