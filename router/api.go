@@ -9,7 +9,7 @@ import (
 
 func InitApiRouter(engine *gin.Engine) {
 	//首页
-	engine.GET("/", controller.Index)
+	//engine.GET("/", controller.Index)
 	//路由分组
 	v2 := engine.Group("/2")
 	{
