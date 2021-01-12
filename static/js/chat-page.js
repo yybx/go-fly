@@ -243,7 +243,7 @@ new Vue({
                                 clearInterval(_this.timer);
                             }
                             let content = msg[i];
-                            content.content = replaceContent(content.content);
+                            // content.content = replaceContent(content.content);
                             _this.msgList.push(content);
                             _this.scrollBottom();
                             if(i==0){
